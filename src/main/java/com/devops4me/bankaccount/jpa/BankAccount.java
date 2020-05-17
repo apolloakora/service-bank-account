@@ -1,4 +1,6 @@
-package com.devops4me.bankaccount;
+package com.devops4me.bankaccount.jpa;
+
+import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
