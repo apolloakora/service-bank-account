@@ -1,4 +1,4 @@
-package com.devops4me.bankaccount.jpa;
+package com.devops4me.bankaccount;
 
 import lombok.Data;
 
