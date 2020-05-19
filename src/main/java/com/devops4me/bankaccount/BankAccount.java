@@ -1,7 +1,5 @@
 package com.devops4me.bankaccount;
 
-import lombok.Data;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,9 +12,10 @@ public class BankAccount
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String holder;
-    private String accountSortcode;
-    private String accountNumber;
-    private Double accountBalance;
+    private String ibanNumber;
+    private String bankId;
+    private Double overdraftLimit;
+    private Double balance;
 
     public String getHolder() {
         return holder;
@@ -26,28 +25,20 @@ public class BankAccount
         this.holder = accountHolderName;
     }
 
-    public String getAccountSortcode() {
-        return accountSortcode;
+    public String getIbanNumber() {
+        return ibanNumber;
     }
 
-    public void setAccountSortcode(String accountSortcode) {
-        this.accountSortcode = accountSortcode;
+    public void setIbanNumber(String accountNumber) {
+        this.ibanNumber = accountNumber;
     }
 
-    public String getAccountNumber() {
-        return accountNumber;
+    public Double getBalance() {
+        return balance;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public Double getAccountBalance() {
-        return accountBalance;
-    }
-
-    public void setAccountBalance(Double accountBalance) {
-        this.accountBalance = accountBalance;
+    public void setBalance(Double accountBalance) {
+        this.balance = accountBalance;
     }
 
     public long getId() {
