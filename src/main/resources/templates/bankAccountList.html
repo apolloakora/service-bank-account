@@ -15,20 +15,21 @@
 
 <ul>
     <li><strong><a href="/createCustomer">Create New Customer</a></strong></li>
-    <li><strong><a href="/createBankAccount">Create Bank Account for Customer</a></strong></li>
 </ul>
 
 <div th:unless="${#lists.isEmpty(customers)}">
-    <dl th:each="customer : ${customers}">
-        <dt>
-            <span th:text="${customer.name}">Name</span>
-            <span th:text="${customer.city}">City</span>
-        </dt>
-        <dd>
-            <span th:if="${customer.name}" th:text="${customer.name}">Name</span>
-            <span th:if="${customer.city}" th:text="${customer.city}">City</span>
-        </dd>
-    </dl>
+    <table style="width:100%">
+        <tr>
+            <th>Customer Name</th>
+            <th>City of Residence</th>
+            <th>Total Balance</th>
+        </tr>
+        <tr th:each="customer : ${customers}">
+            <td><span th:text="${customer.name}"></td>
+            <td><span th:text="${customer.city}"></td>
+            <td>£50.34</td>
+        </tr>
+    </table>
 </div>
 
 <p><em>Thank you for visiting the Bank Liquidity Portal</em></p>
