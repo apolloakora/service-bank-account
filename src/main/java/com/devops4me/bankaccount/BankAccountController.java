@@ -12,28 +12,13 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/")
-public class
-BankAccountController
+public class BankAccountController
 {
     private BankAccountRepository bankAccountRepository;
 
     @Autowired
     public BankAccountController(BankAccountRepository bankAccountRepository ){
         this.bankAccountRepository = bankAccountRepository;
-    }
-
-    @RequestMapping(value = "/", method=RequestMethod.GET)
-    public String splashPage( Model model ) {
-        return "bankAccountList";
-//        List<BankAccount> bankAccountList = bankAccountRepository.findByHolder(holder);
-//        return Collections.singletonMap(holder, bankAccountList);
-    }
-
-    @RequestMapping(value = "/createCustomer", method=RequestMethod.GET)
-    public String createCustomerPage( Model model ) {
-        return "createCustomer";
-//        List<BankAccount> bankAccountList = bankAccountRepository.findByHolder(holder);
-//        return Collections.singletonMap(holder, bankAccountList);
     }
 
     @RequestMapping(value = "/{holder}", method=RequestMethod.GET)
