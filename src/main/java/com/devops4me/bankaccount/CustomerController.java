@@ -27,23 +27,17 @@ public class CustomerController
         if( customerList != null )
             model.addAttribute( "customers", customerList );
         return "bankAccountList";
-//        List<BankAccount> bankAccountList = bankAccountRepository.findByHolder(holder);
-//        return Collections.singletonMap(holder, bankAccountList);
     }
 
     @RequestMapping(value = "/createCustomer", method=RequestMethod.GET)
     public String createCustomerPage( Model model ) {
         return "createCustomer";
-//        List<BankAccount> bankAccountList = bankAccountRepository.findByHolder(holder);
-//        return Collections.singletonMap(holder, bankAccountList);
     }
 
     @RequestMapping( value = "/createCustomer", method=RequestMethod.POST )
     public String createNewCustomer( Customer customer ) {
         customerRepository.save(customer);
         return "redirect:/";
-//        List<BankAccount> bankAccountList = bankAccountRepository.findByHolder(holder);
-//        return Collections.singletonMap(holder, bankAccountList);
     }
 
 }
