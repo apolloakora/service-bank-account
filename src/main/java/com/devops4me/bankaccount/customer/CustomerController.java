@@ -1,4 +1,4 @@
-package com.devops4me.bankaccount;
+package com.devops4me.bankaccount.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,17 +10,17 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/")
-public class CustomerController
+class CustomerController
 {
     private CustomerRepository customerRepository;
 
     @Autowired
-    public CustomerController( CustomerRepository customerRepository ){
+    CustomerController( CustomerRepository customerRepository ){
         this.customerRepository = customerRepository;
     }
 
     @RequestMapping(value = "/", method=RequestMethod.GET)
-    public String splashPage( Model model ) {
+    String splashPage( Model model ) {
         List<Customer> customerList = customerRepository.findAllBy();
         if( customerList != null )
             model.addAttribute( "customers", customerList );
@@ -28,12 +28,12 @@ public class CustomerController
     }
 
     @RequestMapping(value = "/createCustomer", method=RequestMethod.GET)
-    public String createCustomerPage( Model model ) {
+    String createCustomerPage( Model model ) {
         return "createCustomer";
     }
 
     @RequestMapping( value = "/createCustomer", method=RequestMethod.POST )
-    public String createNewCustomer( Customer customer ) {
+    String createNewCustomer( Customer customer ) {
         customerRepository.save(customer);
         return "redirect:/";
     }

@@ -1,5 +1,7 @@
-package com.devops4me.bankaccount;
+package com.devops4me.bankaccount.account;
 
+import com.devops4me.bankaccount.customer.Customer;
+import com.devops4me.bankaccount.customer.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

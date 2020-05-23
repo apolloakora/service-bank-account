@@ -1,4 +1,4 @@
-package com.devops4me.bankaccount;
+package com.devops4me.bankaccount.account;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

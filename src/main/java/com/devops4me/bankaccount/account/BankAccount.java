@@ -1,4 +1,4 @@
-package com.devops4me.bankaccount;
+package com.devops4me.bankaccount.account;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
