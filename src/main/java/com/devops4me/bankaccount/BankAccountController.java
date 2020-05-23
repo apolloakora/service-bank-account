@@ -7,25 +7,27 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
-public class BankAccountController
+class BankAccountController
 {
     private BankAccountRepository bankAccountRepository;
+    private CustomerRepository customerRepository;
 
     @Autowired
-    public BankAccountController(BankAccountRepository bankAccountRepository ){
+    BankAccountController( BankAccountRepository bankAccountRepository, CustomerRepository customerRepository ){
         this.bankAccountRepository = bankAccountRepository;
+        this.customerRepository = customerRepository;
     }
 
-    @RequestMapping(value = "/{holder}", method=RequestMethod.GET)
-    public String holdersBankAccounts(
-            @PathVariable("holder") String holder, Model model) {
-        return "customerList";
-//        List<BankAccount> bankAccountList = bankAccountRepository.findByHolder(holder);
-//        return Collections.singletonMap(holder, bankAccountList);
+    @RequestMapping(value = "/addBankAccount/{customerId}", method=RequestMethod.GET)
+    String addBankAccount( @PathVariable("customerId") Long customerId, Model model)
+    {
+        Customer customer = customerRepository.findCustomerById( customerId );
+        model.addAttribute( "customer", customer );
+        return "addBankAccount";
     }
 
     @PostMapping("/{holder}")
-    public String addToBankAccountList( @PathVariable("holder") String holder, BankAccount bankAccount){
+    String addToBankAccountList( @PathVariable("holder") String holder, BankAccount bankAccount){
         bankAccount.setHolder(holder);
         bankAccountRepository.save(bankAccount);
         return "redirect:/{holder}";
