@@ -1,14 +1,9 @@
 package com.devops4me.bankaccount;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/")
@@ -24,7 +19,7 @@ public class BankAccountController
     @RequestMapping(value = "/{holder}", method=RequestMethod.GET)
     public String holdersBankAccounts(
             @PathVariable("holder") String holder, Model model) {
-        return "bankAccountList";
+        return "customerList";
 //        List<BankAccount> bankAccountList = bankAccountRepository.findByHolder(holder);
 //        return Collections.singletonMap(holder, bankAccountList);
     }

@@ -23,11 +23,13 @@
             <th style="text-align:left">Customer Name</th>
             <th style="text-align:left">City of Residence</th>
             <th style="text-align:left">Total Balance</th>
+            <th style="text-align:left">&nbsp;</th>
         </tr>
         <tr th:each="customer : ${customers}">
-            <td><span th:text="${customer.name}"></td>
-            <td><span th:text="${customer.city}"></td>
-            <td>£50.34</td>
+            <td><span th:text="${customer.name}"></span></td>
+            <td><span th:text="${customer.city}"></span></td>
+            <td>£0.00</td>
+            <td><strong><a th:href="@{/addBankAccount?customerId=${customer.id}}">Add Bank Account</a></strong></td>
         </tr>
     </table>
 </div>
