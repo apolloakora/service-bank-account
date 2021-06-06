@@ -24,7 +24,7 @@ class CustomerController
         List<Customer> customerList = customerRepository.findAllBy();
         if( customerList != null )
             model.addAttribute( "customers", customerList );
-        return "customerList";
+        return "listCustomers";
     }
 
     @RequestMapping(value = "/createCustomer", method=RequestMethod.GET)

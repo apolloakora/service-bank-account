@@ -11,44 +11,76 @@ public class BankAccount
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String holder;
+
+    private Long customerId;
     private String ibanNumber;
-    private String bankId;
+    private String bankCode;
     private Double overdraftLimit;
     private Double balance;
 
-    public String getHolder() {
-        return holder;
+    public String getBankCode()
+    {
+        return bankCode;
     }
 
-    public void setHolder(String accountHolderName) {
-        this.holder = accountHolderName;
+    public void setBankCode(String bankCode)
+    {
+        this.bankCode = bankCode;
     }
 
-    public String getIbanNumber() {
+    public Double getOverdraftLimit()
+    {
+        return overdraftLimit;
+    }
+
+    public void setOverdraftLimit(Double overdraftLimit)
+    {
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    public Long getCustomerId()
+    {
+        return customerId;
+    }
+
+    public void setCustomerId( Long customerId )
+    {
+        this.customerId = customerId;
+    }
+
+    public String getIbanNumber()
+    {
         return ibanNumber;
     }
 
-    public void setIbanNumber(String accountNumber) {
-        this.ibanNumber = accountNumber;
+    public void setIbanNumber(String ibanNumber)
+    {
+        this.ibanNumber = ibanNumber;
     }
 
-    public Double getBalance() {
+    public Double getBalance()
+    {
         return balance;
     }
 
-    public void setBalance(Double accountBalance) {
-        this.balance = accountBalance;
+    public void setBalance(Double balance)
+    {
+        this.balance = balance;
     }
 
-    public long getId() {
+    public long getId()
+    {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(long id)
+    {
         this.id = id;
     }
 
-
+    public String toString()
+    {
+        return "[IBAN " + ibanNumber + "] [Person ID " + customerId + "] Bank Code [" + bankCode + "] Balance [" + balance + "]";
+    }
 
 }

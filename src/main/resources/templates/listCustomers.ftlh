@@ -13,7 +13,6 @@
 </head>
 <body>
     <h1>Bank Liquidity Portal</h1>
-
     <ul>
         <li><strong><a href="/createCustomer">Create New Customer</a></strong></li>
     </ul>
@@ -24,7 +23,8 @@
             <tr>
                 <th style="text-align:left">Customer Name</th>
                 <th style="text-align:left">City of Residence</th>
-                <th style="text-align:left">Total Balance</th>
+                <th style="text-align:left">No. Accounts</th>
+                <th style="text-align:left">Liquidity</th>
                 <th style="text-align:left">&nbsp;</th>
             </tr>
             <#list customers as customer>
@@ -32,7 +32,8 @@
                 <td>${customer.name}</td>
                 <td>${customer.city}</td>
                 <td>£0.00</td>
-                <td><strong><a href="/addBankAccount/${customer.id}">Add Bank Account</a></strong></td>
+                <td>£0.00</td>
+                <td><strong><a href="/createBankAccount/${customer.id}">Add Bank Account</a></strong></td>
             </tr>
             </#list>
         </table>
